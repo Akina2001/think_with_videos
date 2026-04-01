@@ -1,0 +1,49 @@
+api:
+  chat_completions_url: "https://lpai-llm.lixiang.com/inference/qwen/qwen3-vl-235b-a22b-instruct/v1/chat/completions"
+  api_key: "ak-infer-bWluZC12bGE6d3J0cG9zOkMwMDAyNTI6c3VucWloYW9AbGl4aWFuZy5jb206aW5mZXI_NzI3YTQ3OWEtOGIwZi00OGIzLWE3ZTEtOGZhZThiZGFiZTVl"
+  model: "qwen__qwen3-vl-235b-a22b-instruct"
+  timeout: 600
+  temperature: 0.2
+  top_p: 0.7
+  max_tokens: 4096
+  default_mm_processor_kwargs:
+    fps: 2.0
+    do_sample_frames: true
+
+pipeline:
+  short_video_sec: 90.0
+  long_video_sec: 900.0
+
+  overview_target_frames: 768
+  overview_width: 384
+  overview_crf: 18
+
+  coarse_target_segments: 12
+  coarse_min_sec: 12.0
+  coarse_max_sec: 150.0
+  coarse_target_frames: 64
+  coarse_width: 384
+  coarse_crf: 32
+
+  fine_target_sec: 12.0
+  fine_min_sec: 4.0
+  fine_max_sec: 20.0
+  fine_target_frames: 32
+  fine_width: 448
+  fine_crf: 30
+  fine_max_per_coarse: 4
+
+  top_k_retrieve: 8
+  top_k_rerank: 5
+  support_confidence_threshold: 0.65
+  partial_confidence_threshold: 0.55
+  overview_answerable_confidence: 0.85
+  merge_gap_sec: 2.0
+  reflection_probability: 0.4
+
+  keep_invalid_records: false
+  save_intermediate_json: true
+
+output:
+  export_sharegpt: true
+  export_flattened_text: true
